@@ -1,22 +1,3 @@
-## Create EKS Cluster
-#### launch one instance t2.medium
-
-
-**1:Install eksctl CLI tool for creating EKS Clusters on AWS**
-##### download eksctl CLI tool for creating EKS Clusters on AWS
-```` 
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-````
-##### move eksctl setup to /usr/local/bin directory
-
-````
-sudo mv /tmp/eksctl /usr/local/bin
-```` 
-##### To check eksctl version
-```` 
-eksctl version
-````
-
 **2:Install kubectl**
 Download the latest release with the command:
 ````
@@ -61,10 +42,6 @@ sudo ./aws/install
 aws configure
 ````
 
-**5:Create Amazon EKS cluster using eksctl**
-````
-eksctl create cluster --name demo-ekscluster --region us-east-1 --version 1.27 --nodegroup-name linux-nodes --node-type t2.micro --nodes 2
-````
 **6: Log In Into EKS cluster**
 ````
 aws eks update-kubeconfig --name 34-ekscluster
