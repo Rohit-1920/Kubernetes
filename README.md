@@ -1,22 +1,22 @@
-**2:Install kubectl**
-Download the latest release with the command:
+# Install kubectl**
+1: Download the latest release with the command:
 ````
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 ````
-Validate the binary 
+2: Validate the binary 
 ````
  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 ````
-Validate the kubectl binary against the checksum file:
+3: Validate the kubectl binary against the checksum file:
 ````
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 ````
-Install kubectl:
+4: Install kubectl:
 ````
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ````
 Note:
-If you do not have root access on the target system, you can still install kubectl to the ~/.local/bin directory:
+5: If you do not have root access on the target system, you can still install kubectl to the ~/.local/bin directory:
 ````
 chmod +x kubectl
 mkdir -p ~/.local/bin
@@ -26,13 +26,10 @@ mv ./kubectl ~/.local/bin/kubectl
 kubectl version --client
 ````
 
-**3:Install AWS CLI on Ubuntu**
+# Install AWS CLI on Ubuntu**
 ##### Download the aws cli bundle using below command
 ````
-sudo apt install unzip -y
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+snap install aws-cli --classic
 ````
 
 
@@ -42,19 +39,17 @@ sudo ./aws/install
 aws configure
 ````
 
-**6: Log In Into EKS cluster**
+**: Log In Into EKS cluster**
 ````
-aws eks update-kubeconfig --name 34-ekscluster
+aws eks update-kubeconfig --name <clustername>
 ````
-**7: Delete EKS Cluster**
-````
-eksctl delete cluster --name 34-ekscluster --region ap-south-1
+
 ````
 ##eks
 ````
 aws eks update-kubeconfig --region ap-south-1 --name cluster
-````
-````
+** to get cluster info
+```
 kubectl cluster-info
 ````
 ````
